@@ -174,7 +174,7 @@ class Gpio(object):
     def _poll_queue_register_pin(self, pin):
         ''' Pin responds to fileno(), so it's pollable. '''
         callback = partial(self._poll_queue_event, pin)
-        self._poll_queue.add_handler(pin, callback, io_loop.READ|io_loop._EPOLLET)
+        self._poll_queue.add_handler(pin, callback, IOLoop.READ|IOLoop._EPOLLET)
 
 
     def _poll_queue_unregister_pin(self, pin):
