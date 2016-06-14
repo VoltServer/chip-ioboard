@@ -18,7 +18,7 @@ DEFAULT_CONFIG_LOCATION='config.ini'
 DEFAULT_CONFIG_STUB= {
                 'post_url': 'http://ops.voltserver.dev/policy_input/state',
                 'this_host': 'ioboard0',
-                'enabled_pins': '1 2 3',
+                'enabled_pins': '408 409', # see: http://docs.getchip.com/#how-the-system-sees-gpio
             }
 
 if __name__ == '__main__':
@@ -33,7 +33,7 @@ def io_callback(config, pin, value):
     Send an HTTP POST to C{config['post_url']} with JSON body in the form:
     {
         host: 'ioboard0', // name identifying this device, from config['this_host']
-        input_id: 'd0',   // d1, d2, etc.
+        input_id: 'd408', // pin ID
         value: 1          // changed value
     }
     '''
